@@ -25,13 +25,13 @@
 #if OBJC_API_VERSION >= 2
 	Method origMethod = class_getInstanceMethod(self, origSel_);
 	if (!origMethod) {
-		SetNSError(error_, @"original method %@ not found for class %@", NSStringFromSelector(origSel_), [self className]);
+		SetNSError(error_, @"original method %@ not found for class %@", NSStringFromSelector(origSel_), NSStringFromClass ([self class]));
 		return NO;
 	}
 	
 	Method altMethod = class_getInstanceMethod(self, altSel_);
 	if (!altMethod) {
-		SetNSError(error_, @"alternate method %@ not found for class %@", NSStringFromSelector(altSel_), [self className]);
+		SetNSError(error_, @"alternate method %@ not found for class %@", NSStringFromSelector(altSel_), NSStringFromClass ([self class]));
 		return NO;
 	}
 	
@@ -73,14 +73,14 @@
 		if (!directOriginalMethod) {
 			inheritedOriginalMethod = class_getInstanceMethod(self, origSel_);
 			if (!inheritedOriginalMethod) {
-				SetNSError(error_, @"original method %@ not found for class %@", NSStringFromSelector(origSel_), [self className]);
+				SetNSError(error_, @"original method %@ not found for class %@", NSStringFromSelector(origSel_), NSStringFromClass ([self class]));
 				return NO;
 			}
 		}
 		if (!directAlternateMethod) {
 			inheritedAlternateMethod = class_getInstanceMethod(self, altSel_);
 			if (!inheritedAlternateMethod) {
-				SetNSError(error_, @"alternate method %@ not found for class %@", NSStringFromSelector(altSel_), [self className]);
+				SetNSError(error_, @"alternate method %@ not found for class %@", NSStringFromSelector(altSel_), NSStringFromClass ([self class]));
 				return NO;
 			}
 		}
