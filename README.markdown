@@ -1,3 +1,7 @@
+I see people have forked this so I figured I should add some information.
+
+The only changes I've made to my knowledge were small ones to make it work on an iOS device. Use at your own risk! Below was the original README.
+
 # JRSwizzle
 
 ## Description
